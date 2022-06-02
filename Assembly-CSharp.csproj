@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DF1361F5-3151-233F-EA7C-6DE06997FE28}</ProjectGuid>
+    <ProjectGuid>{D32A0EF5-BC4A-35C9-9060-EC56AD583367}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -58,6 +58,8 @@
     <Compile Include="Assets\Scripts\PlayerShoot.cs" />
     <Compile Include="Assets\Scripts\BulletPool.cs" />
     <Compile Include="Assets\Scripts\BulletDestroy.cs" />
+    <Compile Include="Assets\SceneManage.cs" />
+    <Compile Include="Assets\EnemiesCounter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -669,11 +671,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
-      <Project>{EDB86F2A-D9C9-A714-DE59-3F38CB3476A6}</Project>
+      <Project>{0CF22631-D057-2908-25DF-51A29D9679F1}</Project>
       <Name>NavMeshComponentsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{5C246AC5-9B1F-7518-2F30-DDC004FC146F}</Project>
+      <Project>{6CA607A6-D90F-954F-705E-46C907011F18}</Project>
       <Name>NavMeshComponents</Name>
     </ProjectReference>
   </ItemGroup>

@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Animator), typeof(BoxCollider))]
 public class EnemieHealth : MonoBehaviour
 {
     [SerializeField] private float _totalHealth = 100f;
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private GameObject _canvas;
-  
-    private PlayerMove _playerMove;
+    [SerializeField] private PlayerMove _playerMove;
+
     private BoxCollider _boxCollider;
     private Animator _animator;
     private float _health;
 
     private void Start()
     {
-        _playerMove = FindObjectOfType<PlayerMove>();
+        _boxCollider = GetComponent<BoxCollider>();
         _animator = GetComponent<Animator>();
         _health = _totalHealth;
-        _boxCollider = GetComponent<BoxCollider>();
         InitHealth();
     }
 

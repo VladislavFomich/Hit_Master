@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BulletPool))]
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private Transform _spawnPointTransform;

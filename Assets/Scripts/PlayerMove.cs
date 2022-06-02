@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 
+
+[RequireComponent(typeof(NavMeshAgent),typeof(Animator))]
 public class PlayerMove : MonoBehaviour
 {
+    [SerializeField] private SceneManage _sceneManage;
+    [SerializeField] private EnemiesCounter _enemiesCounter;
+
     [SerializeField] private Transform[] _wayPoints;
     [SerializeField] private int[] _enemyOnWayCount;
 
     private int _currentPoint = 0;
     private bool _canRun = false;
     private bool _startTap = true;
-    private int _killEnemy;
+
     private NavMeshAgent _agent;
     private Animator _animator;
 
@@ -44,18 +48,18 @@ public class PlayerMove : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _currentPoint++;
-        _killEnemy = 0;
+        _enemiesCounter.ResetCount();
         _canRun = false;
         if (_currentPoint == _wayPoints.Length)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            _sceneManage.ReloadScene();
         }
         _animator.SetBool("IsRun", false);
     }
     public void KillOnWayCount()
     {
-        _killEnemy++;
-        if (_killEnemy == _enemyOnWayCount[_currentPoint - 1])
+        _enemiesCounter.UpdateCount();
+        if (_enemiesCounter.KillEnemy == _enemyOnWayCount[_currentPoint - 1])
         {
             _canRun = true;
         }
